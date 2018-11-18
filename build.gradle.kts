@@ -7,7 +7,7 @@ buildscript {
 //    var kotlinVer: String by extra
 //    var kotlinTestVer: String by extra
 //
-//    kotlinVer = "1.3.0"
+//    kotlinVer = "1.3.10"
 //    kotlinTestVer = "3.1.10"
 }
 
