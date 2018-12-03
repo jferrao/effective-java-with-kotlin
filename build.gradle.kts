@@ -4,18 +4,19 @@ group = "io.mandrake"
 version = "1.0-SNAPSHOT"
 
 buildscript {
-//    var kotlinVer: String by extra
-//    var kotlinTestVer: String by extra
+//    var kotlinVersion: String by extra
+//    var kotlinTestVersion: String by extra
 //
-//    kotlinVer = "1.3.10"
-//    kotlinTestVer = "3.1.10"
+//    kotlinVersion = "1.3.10"
+//    kotlinTestVersion = "3.1.10"
 }
 
-val kotlinVer: String by extra { "1.3.10" }
-val kotlinTestVer: String by extra { "3.1.10" }
+val kotlinVersion: String by extra { "1.3.10" }
+val junitVersion: String by extra { "5.3.2" }
 
 repositories {
     jcenter()
+//    mavenCentral()
 }
 
 plugins {
@@ -29,9 +30,26 @@ application {
 }
 
 dependencies {
-    // compile(kotlin(module = "stdlib-jre8", version = kotlinVer))
-    compile(kotlin(module = "stdlib", version = kotlinVer))
-    testCompile("io.kotlintest:kotlintest:$kotlinTestVer")
+//    compile(kotlin(module = "stdlib-jre8", version = kotlinVersion))
+    compile(kotlin(module = "stdlib", version = kotlinVersion))
+
+    testCompile("io.kotlintest:kotlintest-runner-junit5:3.1.10")
+
+    testCompile("org.junit.jupiter:junit-jupiter-api:$junitVersion")
+    testCompile("org.junit.jupiter:junit-jupiter-params:$junitVersion")
+    testCompile("org.junit.jupiter:junit-jupiter-engine:$junitVersion")
+    testCompile("org.assertj:assertj-core:3.11.1")
+}
+
+val test by tasks.getting(Test::class) {
+    useJUnitPlatform()
+    testLogging {
+        events("passed", "skipped", "failed")
+    }
+}
+
+tasks.withType<Wrapper> {
+    gradleVersion = "4.10"
 }
 
 val compileKotlin by tasks.getting(KotlinCompile::class) {
