@@ -15,6 +15,8 @@ class KotlinNutritionFactsTest {
     @Test
     fun `test with getters`() {
         val cocaCola = KotlinNutritionFactsWithGetters(servingSize = 240, servings = 8, calories = 100, sodium = 35, carbohydrate = 27)
+        assertThat(cocaCola.servingSize).isEqualTo(240)
+        assertThat(cocaCola.servings).isEqualTo(8)
         assertThat(cocaCola.calories).isEqualTo(100)
     }
 

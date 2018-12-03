@@ -16,6 +16,8 @@ class NutritionFactsTest {
     @Test
     void testWithGetters() {
         final NutritionFactsWithGetters cocaCola = new NutritionFactsWithGetters.Builder(240,8).calories(100).sodium(35).carbohydrate(27).build();
+        assertThat(cocaCola.getServingSize()).isEqualTo(240);
+        assertThat(cocaCola.getServings()).isEqualTo(8);
         assertThat(cocaCola.getCalories()).isEqualTo(100);
     }
 
