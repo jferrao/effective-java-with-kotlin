@@ -20,7 +20,7 @@ repositories {
 }
 
 plugins {
-    kotlin("jvm") version "1.3.10"
+    id("org.jetbrains.kotlin.jvm") version "1.3.11"
     application
     java
 }
