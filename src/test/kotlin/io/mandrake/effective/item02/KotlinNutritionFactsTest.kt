@@ -18,6 +18,9 @@ class KotlinNutritionFactsTest {
         assertThat(cocaCola.servingSize).isEqualTo(240)
         assertThat(cocaCola.servings).isEqualTo(8)
         assertThat(cocaCola.calories).isEqualTo(100)
+        assertThat(cocaCola.fat).isEqualTo(0)
+        assertThat(cocaCola.sodium).isEqualTo(35)
+        assertThat(cocaCola.carbohydrate).isEqualTo(27)
     }
 
 }
