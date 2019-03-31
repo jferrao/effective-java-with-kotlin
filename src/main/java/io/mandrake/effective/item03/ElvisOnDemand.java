@@ -13,7 +13,7 @@ public class ElvisOnDemand {
         return LazyHolder.INSTANCE;
     }
 
-    public void singASong() {
+    public void leaveTheBuilding() {
 
     }
 }
